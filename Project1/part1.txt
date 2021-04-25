@@ -1,0 +1,97 @@
+Part I
+Responser: Woody
+
+Question 1.2
+
+For each of the devices and the app you spent a long time using (in Step 3 above)
+discuss the answers to the following:
+1. How does the app presents information to the user?
+  a. Oculus Go: YouTube VR
+      YouTube VR presents information to the user by VR videos.
+  b. Oculus Quest: Superhot
+      The action game Superhot gives game instructions by displaying words near the
+      objects to explaining how the user can interact with them.
+  c. HTC Vive: Google Earth
+      Google Earth is a 3D map that guides the users to travel around the world. It
+      presents scenes on Earth
+
+2. How does the app allow the user to interact with it?
+  a. Oculus Go: YouTube VR:
+      The user can feel submerged in the VR video without physical interactions
+      with people or objects in the video.
+  b. Oculus Quest: Superhot
+      Superhot is an action game that I played on Oculus Quest. The game
+      brings the user into a submerging virtual environment, which allows the user
+      to walk around, pick tools, and attack enemies.
+  c. HTC Vive: Google Earth
+      The user is able to fly in this virtual world and transmit through various
+      popular cities or locations on Earth. However, everything in this virtual
+      Earth is stationary and the user cannot interact with them.
+
+3. Do you feel immersed?  Why or why not?
+  a. Oculus Go: Not immersed because the system does not have degree of translational
+  freedom.
+  b. Oculus Quest: The most immersed device because the headset is light, the system
+  detects user's hand and body displacement, and the user does not feel dizzy while
+  using it.
+  c. HTC Vive: The system is as immersed as Oculus Quest, but the headset is connected
+  by wires, which restricts the user's movement and interferes user's VR experience.
+  Moreover, the system does not protect the user within a safe boundary.
+
+4. Did you feel any negative physiological responses to using the application
+(e.g., nausea, headache, dizziness,...)?  If so, was there something particular
+about the app that you think caused it?  Note: If you do feel these things, you
+should stop using the headset for a bit and/or sit down while using them.
+
+  I felt a little dizzy after using HTC Vive for more than 10 minutes because the
+  scene is not clear if the user does not adjust the headset to the best position.
+  All devices are not user-friendly to users wearing glasses.
+
+5. What did the app do well, and what could be improved?
+
+  Generally, all apps are successful to render VR effect, and Oculus Quest and
+  HTC Vive is more realistic because of their degrees of translational freedom. Both
+  YouTube VR and Google Earth are better if they allow user interaction.
+
+Consider your experiences using the web browsers on the three systems and viewing
+the starter webpage for this project.  The Oculus Go's headset and controller both
+only have 3 degrees of rotational freedom, and no ability to track translation.
+Both the Oculus Quest and HTC Vive have two controllers, and all components have
+3 degrees of rotational freedom and 3 degrees of translational freedom.
+
+Answer the following questions:
+
+1. How do you think the limitation in degree of freedom of the devices impacted
+the effectiveness of the browser in the Oculus Go versus the other two systems?
+
+  The user cannot see the controller while wearing the headset of Oculus Go, which
+  gives troubles to VR beginners because they do not know the function and position
+  of each buttons on the controller. The web browser does not move according to user's
+  face direction. Therefore, the user should always face in a fixed direction when visiting
+  the web browser.
+
+2. How do you think the limitation in degree of freedom of the devices impacted the
+effectiveness of the starter Project 1 webpage in the Oculus Go versus the other
+two systems?
+
+  In the VR mode of starter Project 1, Oculus Go does not track users’ position
+  (both the headset and controller do not have degrees of translational freedom).
+  When I am moving, the board in front of me did not become closer, which affects
+  the degree of realism of the application. In comparison, Oculus Quest keeps track
+  of users’ position, which allows the user to feel immersed when visiting the webpage.
+
+3. Suggest issues that might arise when developing VR applications that work on
+multiple different types of devices.
+
+  Because different types of device have different degrees of freedom and number of
+  controllers, it is hard for an application to be compatible with both the system
+  that have degrees of translational freedom and the system that does not. Moreover,
+  Oculus and HTC works on different systems. Therefore, to enable a VR application to
+  work on both Oculus and HTC devices, the developers should ensure the application
+  have both an Oculus version and an HTC version.
+
+4. Suggest rationale for why developers might focus on devices like the Oculus Go
+rather than the HTC Vive.
+
+  The application on Oculus Go is world fixed rather than user fixed because the
+  system does not keep track of user’s position, which is easier to implement.

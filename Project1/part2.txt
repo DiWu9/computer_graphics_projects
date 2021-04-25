@@ -1,0 +1,219 @@
+Part II
+Responser: Woody
+
+Question 2.1
+
+Investigate the documentation for git and answer the following questions:
+
+1. What are three benefits of using git and cs-gitlab?
+
+  Backup: all committed versions are stored in Git database, which ensures users to
+  recover the latest committed project when the project is mistakenly deleted.
+  Because of this benefit, a user can continue the project on Git on any PCs in
+  different locations as long as he or she can log in to his or her git account.
+
+  Teamwork: A Git project can simultaneously shared with multiple Git users (similar
+  to Google Doc), which is convenient for teamwork. However, the user can only commit
+  changes when his local git repository is not conflicted with the one stored on Git
+  database.
+
+  Education: Projects in Git can be shared to the public with safety because viewers
+  are not qualified to make changes to the project in Git if they are not the maintainer
+  of the project.
+
+2. What does the term "stage" mean in git and why is it important?  How do developers
+stage things in git?
+
+  Stage is a section of a Git project that stores the files that are going to be
+  committed to the Git database. “Stage” in verb means move something to stage section.
+  Stage is important because it allows developers to select the files that will be
+  uploaded to the Git database. Developers can stage files using  “git add <filename>”
+  command, and if all files should be updated, we can use “git add .” to put all
+  files on stage.
+
+Question 2.2
+
+Consider the user interfaces presented by the Project 1 webpage when loaded in
+Chrome on your computer and with your VR experiences in Part 1.
+
+1. What is different about the two interaction methods?
+
+  The user interface in Chrome is easier to operate than the one in VR because a mouse
+  is easier to use than controllers.
+
+  The user interface in Chrome does not completely presents the room to users. The
+  UI in chrome only presents one side of the wall. In contrast, the VR version presents
+  the entire room to the user and allows users to walk in the room. Moreover, the menu
+  can adjust its position to stay within sight. If looking up, users can see the point
+  light which is brighter than other places in the ceiling.
+
+2. What is similar about the two interaction methods?
+
+  In normal mode, the webpage in presented by Chrome and VR is similar, which is similar
+  to any other 2D webpage. The laser injected by the controllers in VR mode serves the
+  same function as the cursor in normal computer.
+
+3. Give rationale why each interface might be preferred over the other.
+
+Prefer Chrome in Computer:
+  Easier to access the webpage because users can use keyboard to type the web address.
+  More friendly to users with glasses because it does not require a headset.
+  Easier to access because computer is more widely used.
+
+Prefer VR:
+  Presents the webpage in VR mode. Feel submerged.
+  Presents the more features than chrome (4 boards vs. 1 board).
+  Test the VR function of the code (easier to use compared to WebXR Emulator).
+
+Question 2.3
+What is the purpose of the "Watch" section above above the call stack in the debugger?
+Briefly explain how to use it.  What in what kind of situations would it come in handy?
+
+  Users can put variables that is hard to find in Scope in Watch section. By doing so,
+  users can keep track of this variable's status in this section. We track a variable
+  in watch section by clicking the watch button and the "+" button. Then we can put in
+  the variable name and hit 'enter' to finish the process.
+
+
+Question 2.4 - Extra Credit
+I have been unable to determine how to translate (move left/right, up/down, forward
+/backwards) WebXR's emulated controllers or headset on systems have 6DOF.  Determine
+how, and then provide a description of how to do it.
+
+  First switch to a 6DOF system, HTC Vive or Oculus, by clicking the button at the top left.
+  Then there is a Translate/Rotate button that we can switch between rotational DOF and
+  translational DOF.
+
+Question 2.5
+
+Look at main.js and answer the following questions:
+
+1. Lines 60-62 adds a point light in room, and Line 63 adds an ambient light to the room.
+Experiment with commenting out the creation of one or both of these light. What happens?
+Why do you think that is?
+
+  When both the point light and ambient light is removed, only the boards are visible, which
+  indicates that the boards use MeshBasicMaterial, which is not affected by lights. The
+  background is not visible because it uses MeshPhongMaterial, which calculates shading
+  per pixel using Phone shading model. When the ambient light is turned on, everything
+  is visible but the brightness of the room is low because the ambient light illuminates
+  all objects equally and no shadow can be casted. When the point light is turned on, the
+  brightness of the room increases, but in VR mode, the top ceiling is not visible because
+  the point light has a light source and the source is set to at the top of the ceiling. The
+  visibility of the room is the best when both lights are turned on.
+
+2. Lines 69-71 effect the position of the boards. Experiment with changing the values on the
+right hand sides of these lines. Relative to the original orientation of the camera which
+directions do the x-, y-, and z-axes point?
+
+  The x-axes points right, the y-axes points up, the z-axes points out of the screen.
+
+3. The floating menu is created on Line 93. If you wanted to create a new item on that
+menu what would you need to do? What does the use of boards.map on the previous lines
+accomplish?
+
+  To create a new item on the menu, we can add a new GuiVRButton object and add it to
+  the buttonList. The boards.map goes through each board in the board list (4 board in
+  total) and updates the settings of the board.
+
+4. When the user presses the trigger in VR, which function in this file is called first?
+How would / did you determine this using the Chrome debugger?
+
+  Except render() that is called repeatedly. The first function called when the user
+  presses the trigger of VR in main.js is onSelectStart(), which detects mouse event.
+  To check if a function is called when the “Enter VR” button is pressed, we can add a
+  breakpoint to the first line of the function. Thus, if the program pauses, it shows
+  that this function is executing. By adding a breakpoint to each function in the file,
+  we can get the first called function according to the line the program stops at, and
+  it is onSelectStart().
+
+Question 2.6
+
+Look at Board.js and answer the following questions:
+
+1. Inspect the constructor of the Board class. What are the member variables of
+the Board class?
+
+this.n // Number of pixels in each dimension.
+this.stride // Size of each pixel in internal canvas.
+this.dim //Size of internal canvas.
+this.ctx (width, height)
+this.texture (magFilter, minFilter)
+this.collider
+this.clicks
+this.editMode
+this.brushColor
+
+2. What line is responsible for making the board contain white in every cell at
+the beginning of the program.
+
+  The line 40 (this.reset()) paints every cell to while using a for loop.
+
+3. What does Line 114 accomplish?
+
+  this.ctx.fillStyle = "#" + (c.x * 256 *256 + c.y *256 + c.z).toString(16);
+
+  This line updates the painting color by converting the integer values of RGB vector
+  to a hex represented by a string starting with "#".
+
+4. Explain the logic of the if statement conditions in Lines 169-193.
+
+  The Modes dictionary maps painting modes to different integers. Therefore, the system
+  knows which painting modes is selected by the user by comparing the value of edit mode
+  selected by the user in the menu to the value of Modes dictionary.
+
+  Edit mode 0: draw point
+  Edit mode 1 & 4: draw line (1: normal line; 4: antialiased line)
+  Edit mode 2 & 3: draw triangle (2: draw normal triangle; 3: draw filled triangle)
+  Edit mode 5: draw polygon
+
+  When clicks for the current edit mode is enough, call the relative rasterizer function.
+
+5. As you saw above, Lines 69-71 of main.js effect the position of the board.
+Which class does the Board class inherit the position member variable from?
+Provide a hyperlink to the documentation of the three module for this class.
+
+  The Board class inherit the position member variable from class Object3D. The documentation
+  is https://threejs.org/docs/index.html#api/en/core/Object3D.position.
+
+6. Describe how would you refactor Board.js to include the contents of rasterizer.js
+instead of having it as a separate file.  (Don't actually do it though.)
+
+  Directly defines functions in rasterizer.js in Board class with one fewer parameter
+  (no param: board) and for the function calls that begin with RAS, deletes RAS. and
+  remove parameter this.
+
+Question 2.7
+
+Look at GuiVR.js and answer the following questions:
+
+1. The Board class extends the GuiVR class.  What member variable does Board inherit
+from GuiVR that isn't in their parent class THREE.Group?  What is the purpose of this
+member variable?
+
+  collider is a member variable in GuiVR that is inherited by Board class but not in
+  their parent class. Collider is a geometry object that can detect button collide.
+
+2. Put a breakpoint a Line 13 of rasterizer.js.  Explain the call stack when this
+breakpoint is reached.
+
+  When board.writePixel() function is called, rasterizePoint, collide, intersectObjects,
+  and onSelectStart appeared in the call stack. The call stack indicates that when the
+  function board.writePixel() is called, those four functions are also called within
+  the function.
+
+  1. rasterizePoint in rasterizer file is called to paint the cell that is clicked
+  to the current color.
+  2. collide in Board class is called in order to check the edit mode.
+  3. intersectObeject GuiVR class is called to detect the first element touched by the
+  ray.
+  4. onSelectStart in main file is called to detect if the app is in VR mode and handle
+  mouse click in none VR mode or controller click in VR mode.
+
+3. What is an abstract class?  Why was GuiVR designed to be an abstract class?
+
+  Abstract class is the class that contains abstract methods. Abstract methods are the
+  functions that are declared but not implemented. Abstract class does not have constructor.
+  GuiVR is designed to be an abstract class because VR is preferred to be an attribute
+  of a object (e.g. board) rather than an actual object. We can simply give an object the
+  attribute VR by extending the class of this object GuiVR.
